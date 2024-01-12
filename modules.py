@@ -129,3 +129,31 @@ random.shuffle(items)
 print(items)
 
 print('---')
+
+# dokonaj kodowania słownika stocks do formatu JSON 
+# sortując słownik po kluczach oraz stosując wcięcie indent=4
+# Otwórz plik
+import json
+stock_path = 'stocks.json'
+stocks = {'PLW': 360.0, 'TEN': 320.0, 'CDR': 329.0}
+
+sortedStocks = {k: v for k, v in sorted(stocks.items(), key=lambda x: x[0])}
+
+with open (stock_path, "w") as file:
+    json.dump(sortedStocks, file, indent=4)
+
+with open (stock_path, "r") as file:
+    data = json.load(file)
+    print(data)
+
+print('---')
+
+# zapisz zawartość poniższej listy ids w postaci binarnej do pliku o nazwie 'data.pickle'
+import pickle
+ 
+ids = ['001', '003', '011']
+
+with open('data.pickle', 'wb') as file:
+    pickle.dump(ids, file)
+
+    
